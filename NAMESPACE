@@ -1,0 +1,10 @@
+import(Zelig5, VGAM, jsonlite)
+
+exportPattern("^[[:alpha:]]+")
+exportClasses(
+     "Zelig-bbinchoice",
+     "Zelig-blogit",
+     "Zelig-bprobit"
+)
+
+importFrom(methods, setRefClass)
