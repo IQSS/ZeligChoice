@@ -17,4 +17,5 @@ Collate:
     'model-bbinchoice.R'
     'model-blogit.R'
     'model-bprobit.R'
+    'create-json.R'
 VignetteBuilder: knitr

@@ -1,10 +1,10 @@
-zbinchoice <- setRefClass("Zelig-bbinchoice",
+zbbinchoice <- setRefClass("Zelig-bbinchoice",
                           contains = "Zelig",
                           field = list(family = "ANY",
                                        linkinv = "function"
                           ))
 
-zbinchoice$methods(
+zbbinchoice$methods(
   initialize = function() {
     callSuper()
     .self$fn <- quote(VGAM::vglm)
@@ -14,25 +14,24 @@ zbinchoice$methods(
   }
 )
 
-zbinchoice$methods(
-  zelig = function(formula, data, ..., weights = NULL) {
+zbbinchoice$methods(
+  zelig = function(formula, data, ..., weights = NULL, by = NULL) {
     .self$zelig.call <- match.call(expand.dots = TRUE)
     .self$model.call <- match.call(expand.dots = TRUE)
     .self$model.call$family <- .self$family
-    callSuper(formula = formula, data = data, ..., weights = NULL)
+    callSuper(formula = formula, data = data, ..., weights = NULL, by = by)
   }
 )
 
-zbinchoice$methods(
-  param = function(i) {
-    .self$simparam[[i]] <- mvrnorm(n = .self$num, mu = coef(.self$zelig.out[[i]]),
-                              Sigma = vcov(.self$zelig.out[[i]]))
+zbbinchoice$methods(
+  param = function(z.out) {
+    return(mvrnorm(.self$num, coef(z.out), vcov(z.out)))
   }
 )
 
-zbinchoice$methods(
+zbbinchoice$methods(
   # From Zelig 4
-  qi = function(i, x) {
+  qi = function(simparam, mm) {
     .pp <- function(object, constr, all.coef, x) {
       xm <- list()
       xm <- rep(list(NULL), 3)
@@ -100,8 +99,8 @@ zbinchoice$methods(
       return(pr)
     }
     all.coef <- NULL
-    coefs <- .self$simparam[[i]]
-    cm <- constraints(.self$zelig.out[[i]])
+    coefs <- simparam
+    cm <- constraints(.self$zelig.out$z.out[[1]])
     v <- vector("list", 3)
     for (i in 1:length(cm)) {
       if (ncol(cm[[i]]) == 1){
@@ -122,7 +121,7 @@ zbinchoice$methods(
                    "Pr(Y1=1, Y2=0)",
                    "Pr(Y1=1, Y2=1)"
     )
-    ev <- .pp(.self$zelig.out[[i]], cm, all.coef, as.matrix(x))
+    ev <- .pp(.self$zelig.out$z.out[[1]], cm, all.coef, as.matrix(mm))
     pv <- .pr(ev)
     levels(pv) <- c(0, 1)
     return(list("Predicted Probabilities: Pr(Y1=k|X)" = ev,
@@ -130,9 +129,9 @@ zbinchoice$methods(
   }
 )
 
-zbinchoice$methods(
-  show = function() {
-    lapply(.self$zelig.out, function(x) print(VGAM::summary(x)))
-  }
-)
+# zbinchoice$methods(
+#   show = function() {
+#     lapply(.self$zelig.out, function(x) print(VGAM::summary(x)))
+#   }
+# )
 
