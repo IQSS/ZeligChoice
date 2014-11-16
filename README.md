@@ -1,4 +1,4 @@
-Zelig5Choice
+ZeligChoice
 ============
 
-Zelig5Choice
+ZeligChoice
