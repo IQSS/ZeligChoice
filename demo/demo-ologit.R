@@ -30,6 +30,21 @@ z5$sim.out
 z5$summarize()
 z5$cite()
 
+z5 <- zologit$new()
+z5
+z5$zelig(ncost ~ mil + coop, data = sanction, by = "export")
+z5
+z5$setx()
+
+z.out <- z5$zelig.out$z.out[[1]]
+
+set.seed(42)
+z5$sim(num = 100)
+z5$sim.out
+z5$summarize()
+z5$cite()
+
+
 fit <- MASS::polr(formula = as.factor(ncost) ~ mil + coop, data = sanction, method = "logistic", Hess = TRUE)
 summary(fit)
 

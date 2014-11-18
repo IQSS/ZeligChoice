@@ -7,7 +7,6 @@ zobinchoice <- setRefClass("Zelig-obinchoice",
 zobinchoice$methods(
   initialize = function() {
     callSuper()
-    .self$name <- "obinchoice"
     .self$fn <- quote(MASS::polr)
     .self$authors <- "Matthew Owen, Olivia Lau, Kosuke Imai, Gary King"
     .self$year <- 2011
