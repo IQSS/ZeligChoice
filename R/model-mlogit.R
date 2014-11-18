@@ -59,37 +59,6 @@ zmlogit$methods(
   }
 )
 
-# qi.mlogit <- function(obj, x=NULL, x1=NULL, y=NULL, num=1000, param=NULL) {
-#   # get fitted model object
-#   fitted <- GetObject(obj)
-#   # get constraints from fitted model
-#   constraints <- fitted@constraints
-#   coef <- coef(param)
-#   ndim <- ncol(fitted@y) - 1
-#   all.coef <- NULL
-#   v <- construct.v(constraints, ndim)
-#   # put all indexed lists in the appropriate section
-#   for (i in 1:ndim)
-#     all.coef <- c(all.coef, list(coef[, v[[i]]]))
-#   cnames <- ynames <- if (is.null(colnames(fitted@y)))
-#     1:(ndim+1)
-#   else
-#     colnames(fitted@y)
-#   cnames <- paste('Pr(Y=', cnames, ')', sep='')
-#   ev1 <- ev.mlogit(fitted, constraints, all.coef, x, ndim, cnames)
-#   ev2 <- ev.mlogit(fitted, constraints, all.coef, x1, ndim, cnames)
-#   pv1 <- pv.mlogit(fitted, ev1, ynames)
-#   pv2 <- pv.mlogit(fitted, ev2, ynames)
-#   
-#   return(list(
-#     "Expected Values: E(Y|X)" = ev1,
-#     "Expected Values: E(Y|X1)" = ev2,
-#     "Predicted Values: Y|X" = pv1,
-#     "Predicted Values: Y|X1" = pv2,
-#     "First Differences: E(Y|X1) - E(Y|X)" = ev2 - ev1,
-#     "Risk Ratios: E(Y|X1)/E(Y|X)" = ev2/ev1))
-# }
-
 # Split Names of Vectors into N-vectors
 # This function is used to organize how variables are spread
 # across the list of formulas
@@ -136,27 +105,21 @@ pv.mlogit <- function (fitted, ev, ynames) {
   if (all(is.na(ev)))
     return(NA)
   # initialize predicted values and a matrix
-  pr <- NULL
-  Ipr <- sim.cut <- matrix(NA, nrow = nrow(ev), ncol(ev))
+  pv <- NULL
+  Ipv <- sim.cut <- matrix(NA, nrow = nrow(ev), ncol(ev))
   k <- ncol(ev)
-  colnames(Ipr) <- colnames(sim.cut) <- colnames(ev)
+  colnames(Ipv) <- colnames(sim.cut) <- colnames(ev)
   sim.cut[, 1] <- ev[, 1]
   for (j in 2:k)
     sim.cut[, j] <- sim.cut[ , j - 1] + ev[, j]
   tmp <- runif(nrow(ev), min = 0, max = 1)
   for (j in 1:k)
-    Ipr[, j] <- tmp > sim.cut[, j]
-  for (j in 1:nrow(Ipr))
-    pr[j] <- 1 + sum(Ipr[j, ])
-#   pr <- factor(pr, levels = sort(unique(pr)), labels = ynames)
-  pr <- factor(pr, ordered = FALSE)
-  pr.matrix <- matrix(pr, nrow = dim(ev)[1])
-  levels(pr.matrix) <- levels(pr)
-  return(pr.matrix)
+    Ipv[, j] <- tmp > sim.cut[, j]
+  for (j in 1:nrow(Ipv))
+    pv[j] <- 1 + sum(Ipv[j, ])
+  pv <- factor(pv, ordered = FALSE)
+  pv.matrix <- matrix(pv, nrow = dim(ev)[1])
+  levels(pv.matrix) <- levels(pv)
+  return(pv.matrix)
 }
 
-# zbinchoice$methods(
-#   show = function() {
-#     lapply(.self$zelig.out, function(x) print(VGAM::summary(x)))
-#   }
-# )
