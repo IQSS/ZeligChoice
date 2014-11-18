@@ -1,8 +1,8 @@
 zobinchoice <- setRefClass("Zelig-obinchoice",
-                          contains = "Zelig",
-                          field = list(method = "character",
-                                       linkinv = "function"
-                          ))
+                           contains = "Zelig",
+                           field = list(method = "character",
+                                        linkinv = "function"
+                           ))
 
 zobinchoice$methods(
   initialize = function() {
@@ -48,92 +48,52 @@ zobinchoice$methods(
     simulations <- simparam$simparam
     coef <- coef(z)
     # simulations on coefficients
-    sim.coef <- simulations[, 1:length(coef), drop = FALSE]
+    sim.coef <- simulations[, 1:length(coef),
+                            drop = FALSE]
     # remove (Intercept), make sure matrix is numeric
-    mat1 <- as.numeric(as.matrix(mm)[, -1])
+    mat <- as.numeric(as.matrix(mm)[, -1])
     # compute eta
-    eta1 <- t(mat1 %*% t(sim.coef))
+    eta <- t(mat %*% t(sim.coef))
     # simulations on zeta, and define theta
-    sim.zeta <- sim.theta <- simulations[, (length(coef) + 1):ncol(simulations), drop = FALSE]
+    sim.zeta <- sim.theta <- simulations[, (length(coef) + 1):ncol(simulations),
+                                         drop = FALSE]
     sim.zeta[, -1] <- exp(sim.theta[, -1])
     sim.zeta <- t(apply(sim.zeta, 1, cumsum))
     
-    ev <- .compute.ev(z, mm, .self$num, simulations, eta1, sim.zeta)
-    pv <- .compute.pr(z, mm, .self$num, simulations, eta1, sim.zeta)
-
+    ##----- Expected value
+    
+    k <- length(z$zeta) + 1
+    # remove (Intercept), make sure matrix is numeric
+    mat <- as.numeric(as.matrix(mm)[, -1])
+    eta <- t(mat %*% t(sim.coef))
+    rows <- as.matrix(mm)
+    Ipv <- cuts <- tmp0 <- array(0, dim = c(.self$num, k, nrow(rows)),
+                          dimnames = list(1:.self$num, z$lev, rownames(rows)))
+    for (i in 1:.self$num) {
+      cuts[i, , ] <- t(.self$linkinv(eta[i, ], sim.zeta[i, ]))
+    }
+    tmp0[, 2:k, ] <- cuts[, 2:k - 1, ] # 2:k-1 => 1, 2, 3, 4, ..., k-1
+    ev <- cuts - tmp0
+    dimnames(ev) <- list(1:.self$num, z$lev, rownames(mm))
+    # remove unnecessary dimensions
+    ev <- ev[, , 1]
+    colnames(ev) <- z$lev
+    
+    ##----- Predicted value
+    pv <- matrix(NA, nrow = .self$num, ncol = nrow(as.matrix(mm)))
+    tmp <- matrix(
+      runif(length(cuts[, 1, ]), 0, 1),
+      nrow = .self$num,
+      ncol = nrow(mm)
+    )
+    for (j in 1:k)
+      Ipv[, j, ] <- as.integer(tmp > cuts[, j, ])
+    for (j in 1:nrow(mm)) 
+      pv[, j] <- 1 + rowSums(Ipv[, , j, drop = FALSE])
+    factors <- factor(pv,
+                      labels = z$lev[1:length(z$lev) %in% sort(unique(pv))],
+                      ordered = TRUE)
+    
     return(list(ev = ev, pv = pv))
   }
 )
-
-.compute.ev <- function(z, x, num, param, eta, sim.zeta) {
-  if (is.null(x))
-    return(NA)
-  simulations <- param
-  coef <- coef(z)
-  # simulations on coefficients
-  sim.coef <- simulations[, 1:length(coef), drop = FALSE]
-  #
-  k <- length(z$zeta) + 1
-  # remove (Intercept), make sure matrix is numeric
-  mat <- as.numeric(as.matrix(x)[, -1])
-  # compute eta
-  eta <- t(mat %*% t(sim.coef))
-  lev <- z$lev
-  rows <- as.matrix(x)
-  Ipr <- cuts <- tmp0 <- {
-    array(
-      0, dim = c(num, k, nrow(rows)),
-      dimnames = list(1:num, lev, rownames(rows))
-    )
-  }
-  for (i in 1:num) {
-    cuts[i, , ] <- t(.self$linkinv(eta[i, ], sim.zeta[i, ]))
-  }
-  # NOTE:
-  #  2:k => 2, 3, 4, ..., k
-  #  2:k-1 => 1, 2, 3, 4, ..., k-1
-  tmp0[, 2:k, ] <- cuts[, 2:k - 1, ]
-  ev <- cuts - tmp0
-  dimnames(ev) <- list(1:num, z$result$lev, rownames(x))
-  # remove unnecessary dimensions
-  if (dim(ev)[3] == 1)
-    ev <- ev[, , 1]
-  colnames(ev) <- z$lev
-  return(ev)
-}
-
-.compute.pr <- function(z, x, num, param, eta, sim.zeta) {
-  if (is.null(x))
-    return(NA)
-  x <- as.matrix(x)
-  rows <- x
-  k <- length(z$zeta) + 1
-  lev <- z$lev
-  
-  Ipr <- cuts <- tmp0 <- {
-    array(
-      0, dim = c(num, k, nrow(rows)),
-      dimnames = list(1:num, lev, rownames(rows))
-    )
-  }
-  for (i in 1:num) 
-    cuts[i, , ] <- t(.self$linkinv(eta[i, ], sim.zeta[i, ]))
-  pr <- matrix(NA, nrow = num, ncol = nrow(as.matrix(x)))
-  tmp <- matrix(
-    runif(length(cuts[, 1, ]), 0, 1),
-    nrow = num,
-    ncol = nrow(x)
-  )
-
-  k <- length(z$zeta) + 1
-  for (j in 1:k)
-    Ipr[, j, ] <- as.integer(tmp > cuts[, j, ])
-  
-  for (j in 1:nrow(x)) 
-    pr[, j] <- 1 + rowSums(Ipr[, , j, drop = FALSE])
-  
-  factors <- factor(pr,
-                    labels = lev[1:length(lev) %in% sort(unique(pr))],
-                    ordered = TRUE)
-  return(pr)
-}

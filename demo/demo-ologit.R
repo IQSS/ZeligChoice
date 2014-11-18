@@ -11,7 +11,7 @@ z.out <- Zelig4::zelig(ncost ~ mil + coop, model = "ologit", data = sanction)
 summary(z.out)
 x.out <- Zelig4::setx(z.out, fn = NULL)
 set.seed(42)
-s.out <- Zelig4::sim(z.out, x = x.out, num = 5)
+s.out <- Zelig4::sim(z.out, x = x.out, num = 100)
 summary(s.out)
 
 # Zelig 5 code:
@@ -25,7 +25,7 @@ z5$setx()
 z.out <- z5$zelig.out$z.out[[1]]
 
 set.seed(42)
-z5$sim(num = 5)
+z5$sim(num = 100)
 z5$sim.out
 z5$summarize()
 z5$cite()
