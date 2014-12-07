@@ -13,8 +13,8 @@ zmlogit$methods(
     .self$authors <- "Matthew Owen, Olivia Lau, Kosuke Imai, Gary King"
     .self$year <- 2007
     .self$category <- "multinomial"
-    # .self$family <- quote(VGAM::multinomial)
     .self$family <- "multinomial"
+    .self$wrapper <- "mlogit"
   }
 )
 

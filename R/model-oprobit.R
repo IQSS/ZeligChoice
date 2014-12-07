@@ -13,5 +13,6 @@ zoprobit$methods(
       tmp1[, 1:length(zeta)] <- pnorm(zeta - eta)
       return(tmp1)
     }
+    .self$wrapper <- "oprobit"
   }
 )

@@ -13,5 +13,6 @@ zologit$methods(
       tmp1[, 1:length(zeta)] <- exp(zeta - eta) / (1 + exp(zeta - eta))
       return(tmp1)
     }
+    .self$wrapper <- "ologit"
   }
 )

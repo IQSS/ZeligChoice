@@ -9,5 +9,6 @@ zblogit$methods(
     .self$description <- "Bivariate Logit Regression for Dichotomous Dependent Variables"
     .self$family <- quote(binom2.or(zero = 3))
     .self$linkinv <- binom2.or()@linkinv
+    .self$wrapper <- "blogit"
   }
 )

@@ -44,7 +44,6 @@ zbbinchoice$methods(
       xm <- list()
       xm <- rep(list(NULL), 3)
       sim.eta <- NULL
-      # again this can definitely be written better
       for (i in 1:length(constr))
         for (j in 1:3)
           if (sum(constr[[i]][j,]) == 1)
