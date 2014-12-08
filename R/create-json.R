@@ -25,5 +25,5 @@ zeligchoicemodels <- list(zelig5choicemodels = list("blogit" = z5blogit$ljson,
                                                     "ologit" = z5ologit$ljson,
                                                     "oprobit" = z5oprobit$ljson))
 
-cat(toJSON(zeligchoicemodels, pretty = TRUE),
+cat(jsonlite::toJSON(zeligchoicemodels, pretty = TRUE),
     file = file.path("inst/JSON", "zelig5choicemodels.json"))

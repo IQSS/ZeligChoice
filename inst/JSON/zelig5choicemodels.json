@@ -29,8 +29,7 @@
             ],
             "tree": [
                 "Zelig-blogit",
-                "Zelig-bbinchoice",
-                "Zelig"
+                "Zelig-bbinchoice"
             ]
         },
         "bprobit": {
@@ -62,8 +61,7 @@
             ],
             "tree": [
                 "Zelig-blogit",
-                "Zelig-bbinchoice",
-                "Zelig"
+                "Zelig-bbinchoice"
             ]
         },
         "mlogit": {
@@ -94,8 +92,7 @@
                 "mlogit"
             ],
             "tree": [
-                "Zelig-mlogit",
-                "Zelig"
+                "Zelig-mlogit"
             ]
         },
         "ologit": {
@@ -127,8 +124,7 @@
             ],
             "tree": [
                 "Zelig-ologit",
-                "Zelig-obinchoice",
-                "Zelig"
+                "Zelig-obinchoice"
             ]
         },
         "oprobit": {
@@ -160,8 +156,7 @@
             ],
             "tree": [
                 "Zelig-ologit",
-                "Zelig-obinchoice",
-                "Zelig"
+                "Zelig-obinchoice"
             ]
         }
     }
