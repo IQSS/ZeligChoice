@@ -129,10 +129,10 @@
         },
         "oprobit": {
             "name": [
-                "ologit"
+                "oprobit"
             ],
             "description": [
-                "Ordinal Logit Regression for Ordered Categorical Dependent Variables"
+                "Ordinal Probit Regression for Ordered Categorical Dependent Variables"
             ],
             "outcome": {
                 "modelingType": [
@@ -149,13 +149,13 @@
                 ]
             },
             "vignette.url": [
-                "http://zeligproject.org/zelig-ologit.html"
+                "http://zeligproject.org/zelig-oprobit.html"
             ],
             "wrapper": [
-                "ologit"
+                "oprobit"
             ],
             "tree": [
-                "Zelig-ologit",
+                "Zelig-oprobit",
                 "Zelig-obinchoice"
             ]
         }

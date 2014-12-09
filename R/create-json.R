@@ -16,7 +16,7 @@ z5mlogit$toJSON()
 z5ologit <- zologit$new()
 z5ologit$toJSON()
 
-z5oprobit <- zologit$new()
+z5oprobit <- zoprobit$new()
 z5oprobit$toJSON()
 
 zeligchoicemodels <- list(zelig5choicemodels = list("blogit" = z5blogit$ljson,
