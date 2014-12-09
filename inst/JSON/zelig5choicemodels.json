@@ -34,10 +34,10 @@
         },
         "bprobit": {
             "name": [
-                "blogit"
+                "bprobit"
             ],
             "description": [
-                "Bivariate Logit Regression for Dichotomous Dependent Variables"
+                "Bivariate Probit Regression for Dichotomous Dependent Variables"
             ],
             "outcome": {
                 "modelingType": [
@@ -54,13 +54,13 @@
                 ]
             },
             "vignette.url": [
-                "http://zeligproject.org/zelig-blogit.html"
+                "http://zeligproject.org/zelig-bprobit.html"
             ],
             "wrapper": [
-                "blogit"
+                "bprobit"
             ],
             "tree": [
-                "Zelig-blogit",
+                "Zelig-bprobit",
                 "Zelig-bbinchoice"
             ]
         },

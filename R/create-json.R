@@ -7,7 +7,7 @@ library(jsonlite)
 z5blogit <- zblogit$new()
 z5blogit$toJSON()
 
-z5bprobit <- zblogit$new()
+z5bprobit <- zbprobit$new()
 z5bprobit$toJSON()
 
 z5mlogit <- zmlogit$new()
