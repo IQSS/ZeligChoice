@@ -14,5 +14,6 @@ zologit$methods(
       return(tmp1)
     }
     .self$wrapper <- "ologit"
+    .self$vignette.url <- "http://docs.zeligproject.org/zeligchoice-ologit.html"
   }
 )

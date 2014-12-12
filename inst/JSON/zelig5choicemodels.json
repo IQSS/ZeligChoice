@@ -22,7 +22,7 @@
                 ]
             },
             "vignette.url": [
-                "http://zeligproject.org/zelig-blogit.html"
+                "http://docs.zeligproject.org/zeligchoice-blogit.html"
             ],
             "wrapper": [
                 "blogit"
@@ -54,7 +54,7 @@
                 ]
             },
             "vignette.url": [
-                "http://zeligproject.org/zelig-bprobit.html"
+                "http://docs.zeligproject.org/zeligchoice-bprobit.html"
             ],
             "wrapper": [
                 "bprobit"
@@ -86,7 +86,7 @@
                 ]
             },
             "vignette.url": [
-                "http://zeligproject.org/zelig-mlogit.html"
+                "http://docs.zeligproject.org/zeligchoice-mlogit.html"
             ],
             "wrapper": [
                 "mlogit"
@@ -117,7 +117,7 @@
                 ]
             },
             "vignette.url": [
-                "http://zeligproject.org/zelig-ologit.html"
+                "http://docs.zeligproject.org/zeligchoice-ologit.html"
             ],
             "wrapper": [
                 "ologit"
@@ -149,7 +149,7 @@
                 ]
             },
             "vignette.url": [
-                "http://zeligproject.org/zelig-oprobit.html"
+                "http://docs.zeligproject.org/zeligchoice-oprobit.html"
             ],
             "wrapper": [
                 "oprobit"

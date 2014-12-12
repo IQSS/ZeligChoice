@@ -18,7 +18,7 @@ z.out2 <- zelig(cbind(import, export) ~ coop + cost + target, model = "blogit", 
 z.out2 <- zelig(list(import ~ coop, export ~ cost + target), model = "blogit", data = sanction)
 z5$zelig(list(import ~ coop, export ~ cost + target), model = "blogit", data = sanction)
 
-z.out2 <- zelig(import ~ coop, model = "logit", data = sanction)
+z.out2 <- zelig(cbind(import, export) ~ coop + cost + target, model = "blogit", data = sanction)
 
 z5
 z5$zelig.out$z.out[1]

@@ -10,5 +10,6 @@ zblogit$methods(
     .self$family <- quote(binom2.or(zero = 3))
     .self$linkinv <- binom2.or()@linkinv
     .self$wrapper <- "blogit"
+    .self$vignette.url <- "http://docs.zeligproject.org/zeligchoice-blogit.html"
   }
 )

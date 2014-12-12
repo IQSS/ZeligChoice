@@ -14,5 +14,6 @@ zoprobit$methods(
       return(tmp1)
     }
     .self$wrapper <- "oprobit"
+    .self$vignette.url <- "http://docs.zeligproject.org/zeligchoice-oprobit.html"
   }
 )

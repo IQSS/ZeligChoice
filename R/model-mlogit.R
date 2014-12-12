@@ -15,6 +15,7 @@ zmlogit$methods(
     .self$category <- "multinomial"
     .self$family <- "multinomial"
     .self$wrapper <- "mlogit"
+    .self$vignette.url <- "http://docs.zeligproject.org/zeligchoice-mlogit.html"
   }
 )
 

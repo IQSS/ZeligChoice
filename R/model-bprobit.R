@@ -10,6 +10,7 @@ zbprobit$methods(
     .self$family <- quote(binom2.rho(zero = 3))
     .self$linkinv <- binom2.rho()@linkinv
     .self$wrapper <- "bprobit"
+    .self$vignette.url <- "http://docs.zeligproject.org/zeligchoice-bprobit.html"
   }
 )
 
