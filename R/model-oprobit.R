@@ -6,6 +6,7 @@ zoprobit$methods(
   initialize = function() {
     callSuper()
     .self$name <- "oprobit"
+    .self$packageauthors <- "William N. Venables, and Brian D. Ripley"
     .self$description <- "Ordinal Probit Regression for Ordered Categorical Dependent Variables"
     .self$method <- "probit"
     .self$linkinv <- function(eta, zeta) {

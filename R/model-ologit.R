@@ -6,6 +6,7 @@ zologit$methods(
   initialize = function() {
     callSuper()
     .self$name <- "ologit"
+    .self$packageauthors <- "William N. Venables, and Brian D. Ripley"
     .self$description <- "Ordinal Logit Regression for Ordered Categorical Dependent Variables"
     .self$method <- "logistic"
     .self$linkinv <- function(eta, zeta) {

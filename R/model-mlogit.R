@@ -11,6 +11,7 @@ zmlogit$methods(
     .self$description <- "Multinomial Logistic Regression for Dependent Variables with Unordered Categorical Values"
     .self$fn <- quote(VGAM::vglm)
     .self$authors <- "Matthew Owen, Olivia Lau, Kosuke Imai, Gary King"
+    .self$packageauthors <- "Thomas W. Yee"
     .self$year <- 2007
     .self$category <- "multinomial"
     .self$family <- "multinomial"
