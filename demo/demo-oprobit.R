@@ -17,10 +17,14 @@ s.out <- Zelig4::sim(z.out, x = x.out, num = 5)
 summary(s.out)
 
 # Zelig 5 code:
-# data(sanction)
+data(sanction)
 z5 <- zoprobit$new()
 z5
 z5$zelig(ncost ~ mil + coop, data = sanction)
+z5
+z5$setrange(sanction = 1)
+z5
+z5$sim(num = 100)
 z5
 z5$setx()
 

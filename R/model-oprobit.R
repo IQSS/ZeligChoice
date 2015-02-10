@@ -18,3 +18,29 @@ zoprobit$methods(
     .self$vignette.url <- "http://docs.zeligproject.org/en/latest/zeligchoice-oprobit.html"
   }
 )
+
+zoprobit$methods(
+  test = function(b0 = -1, b1 = 1, nsim = 1000, minx = -1, maxx = 1) {
+    
+    x.init <- mcunit.init(nsim, minx, maxx)
+    xb <- b0 + b1 * x.init[,1]
+    
+    y.star <- rnorm(nsim, xb, 1)
+    t1 <- qnorm(.25, mean=mean(xb), sd = 1)
+    t2 <- qnorm(.5, mean=mean(xb), sd = 1)
+    t3 <- qnorm(.75, mean=mean(xb), sd = 1)
+    
+    y.sim = rep(NA, nsim)
+    y.sim[y.star < t1] <- 1
+    y.sim[y.star >= t1 & y.star < t2] <- 2
+    y.sim[y.star >= t2] <- 3
+      
+    y.true <- rep(NA, nsim)
+    data <- data.frame(cbind(x.init, y.sim, y.true))
+#     return(data)
+# 
+    z <- zoprobit$new()
+    callSuper(z, data)
+    
+  }
+)

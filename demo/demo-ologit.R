@@ -15,11 +15,13 @@ s.out <- Zelig4::sim(z.out, x = x.out, num = 100)
 summary(s.out)
 
 # Zelig 5 code:
-# data(sanction)
+data(sanction)
 z5 <- zologit$new()
 z5
 z5$zelig(ncost ~ mil + coop, data = sanction)
 z5
+z5$setx(coop = 1:3)
+
 z5$setx()
 
 z.out <- z5$zelig.out$z.out[[1]]
