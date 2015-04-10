@@ -15,12 +15,12 @@ Suggests:
     testthat,
     knitr
 Collate:
-    'model-bbinchoice.R'
-    'model-blogit.R'
-    'model-bprobit.R'
-    'model-mlogit.R'
     'model-obinchoice.R'
-    'model-ologit.R'
     'model-oprobit.R'
+    'model-ologit.R'
+    'model-mlogit.R'
+    'model-bbinchoice.R'
+    'model-bprobit.R'
+    'model-blogit.R'
     'create-json.R'
 VignetteBuilder: knitr

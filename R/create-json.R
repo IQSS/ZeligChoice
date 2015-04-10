@@ -1,6 +1,9 @@
 #' @include model-bbinchoice.R
 #' @include model-blogit.R
 #' @include model-bprobit.R
+#' @include model-ologit.R
+#' @include model-oprobit.R
+#' @include model-mlogit.R
 
 library(jsonlite)
 
@@ -25,5 +28,10 @@ zeligchoicemodels <- list(zelig5choicemodels = list("blogit" = z5blogit$ljson,
                                                     "ologit" = z5ologit$ljson,
                                                     "oprobit" = z5oprobit$ljson))
 
-cat(jsonlite::toJSON(zeligchoicemodels, pretty = TRUE),
-    file = file.path("inst/JSON", "zelig5choicemodels.json"))
+# cat(jsonlite::toJSON(zeligchoicemodels, pretty = TRUE),
+#     file = file.path("inst/JSON", "zelig5choicemodels.json"))
+
+cat(toJSON(zeligchoicemodels, pretty = TRUE), file = file.path("zelig5choicemodels.json"))
+file.rename(from = file.path("zelig5choicemodels.json"),
+            to = file.path("inst", "JSON", "zelig5choicemodels.json"))
+file.remove(file.path("zelig5choicemodels.json"))
