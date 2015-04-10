@@ -1,4 +1,12 @@
+#' Bivariate Logistic Regression for Two Dichotomous Dependent Variables
+#'
+#' Vignette: \url{http://docs.zeligproject.org/en/latest/zeligchoice-blogit.html}
+#' @import methods
+#' @export Zelig-blogit
+#' @exportClass Zelig-blogit
+#' 
 #' @include model-bbinchoice.R
+
 zblogit <- setRefClass("Zelig-blogit",
                        contains = "Zelig-bbinchoice")
 

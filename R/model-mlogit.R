@@ -1,3 +1,10 @@
+#' Multinomial Logistic Regression for Dependent Variables with Unordered Categorical Values
+#'
+#' Vignette: \url{http://docs.zeligproject.org/en/latest/zeligchoice-mlogit.html}
+#' @import methods
+#' @export Zelig-bprobit
+#' @exportClass Zelig-bprobit
+
 zmlogit <- setRefClass("Zelig-mlogit",
                           contains = "Zelig",
                           field = list(family = "ANY",
