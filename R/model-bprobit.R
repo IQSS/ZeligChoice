@@ -1,4 +1,12 @@
+#' Bivariate Probit Regression for Two Dichotomous Dependent Variables
+#'
+#' Vignette: \url{http://docs.zeligproject.org/en/latest/zeligchoice-bprobit.html}
+#' @import methods
+#' @export Zelig-bprobit
+#' @exportClass Zelig-bprobit
+#' 
 #' @include model-bbinchoice.R
+
 zbprobit <- setRefClass("Zelig-bprobit",
                         contains = "Zelig-bbinchoice")
 

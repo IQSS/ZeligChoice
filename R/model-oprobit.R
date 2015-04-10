@@ -1,4 +1,12 @@
+#' Ordinal Probit Regression for Ordered Categorical Dependent Variables
+#'
+#' Vignette: \url{http://docs.zeligproject.org/en/latest/zeligchoice-oprobit.html}
+#' @import methods
+#' @export Zelig-ologit
+#' @exportClass Zelig-ologit
+#' 
 #' @include model-obinchoice.R
+
 zoprobit <- setRefClass("Zelig-oprobit",
                        contains = "Zelig-obinchoice")
 

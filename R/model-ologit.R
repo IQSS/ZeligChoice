@@ -1,4 +1,12 @@
+#' Ordinal Logistic Regression for Ordered Categorical Dependent Variables
+#'
+#' Vignette: \url{http://docs.zeligproject.org/en/latest/zeligchoice-ologit.html}
+#' @import methods
+#' @export Zelig-ologit
+#' @exportClass Zelig-ologit
+#' 
 #' @include model-obinchoice.R
+
 zologit <- setRefClass("Zelig-ologit",
                        contains = "Zelig-obinchoice")
 
