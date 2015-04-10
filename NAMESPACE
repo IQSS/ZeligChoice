@@ -1,4 +1,4 @@
-import(Zelig, MASS, VGAM, jsonlite)
+import(methods,Zelig, MASS, VGAM, jsonlite)
 
 exportPattern("^[[:alpha:]]+")
 exportClasses(

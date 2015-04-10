@@ -2,11 +2,12 @@ Package: ZeligChoice
 Maintainer: James Honaker <zelig-zee@iq.harvard.edu>
 License: GPL (>=2)
 Title: Zelig Choice Models
-Author: Who wrote it
+Author: Christine Choirat, James Honaker, Kosuke Imai, Gary King, Olivia Lau
 Description: Add-on package for Zelig 5. Enables the use of a variety of logit
     and probit regressions.
 Version: 0.9-0
 Depends:
+    methods,
     Zelig,
     MASS,
     VGAM,
