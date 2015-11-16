@@ -1,4 +1,9 @@
-import(methods,Zelig, MASS, VGAM, jsonlite)
+import(methods, Zelig, MASS, jsonlite)
+
+importFrom("VGAM", "vglm")
+
+importClassesFrom("VGAM", "vglm")
+importMethodsFrom("VGAM", "coef", "fitted", "plot", "predict", "summary", "vcov")
 
 exportPattern("^[[:alpha:]]+")
 exportClasses(
@@ -10,5 +15,3 @@ exportClasses(
      "Zelig-ologit",
      "Zelig-oprobit"
 )
-
-importFrom(methods, setRefClass)

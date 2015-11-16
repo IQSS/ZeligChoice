@@ -63,17 +63,19 @@ zmlogit$methods(
     ynames <- cnames
     cnames <- paste("Pr(Y=", cnames, ")", sep = "")
     ev <- ev.mlogit(fitted, constraints, all.coef, mm, ndim, cnames)
-    pv <- pv.mlogit(fitted, ev, ynames)
+    pv <- pv.mlogit(fitted, ev) #, ynames)
     return(list(ev = ev, pv = pv))
   }
 )
 
-# Split Names of Vectors into N-vectors
-# This function is used to organize how variables are spread
-# across the list of formulas
-# @param constraints a constraints object
-# @param ndim 
-# @return a list of character-vectors
+
+#' Split Names of Vectors into N-vectors
+#' This function is used to organize how variables are spread
+#' across the list of formulas
+#' @usage construct.v(constraints, ndim)
+#' @param constraints a constraints object
+#' @param ndim an integer specifying the number of dimensions
+#' @return a list of character-vectors
 construct.v <- function(constraints, ndim) {
   v <- rep(list(NULL), ndim)
   names <- names(constraints)
@@ -91,6 +93,16 @@ construct.v <- function(constraints, ndim) {
   return(v)
 }
 
+
+#' Simulate Expected Value for Multinomial Logit
+#' @usage ev.mlogit(fitted, constraints, all.coef, x, ndim, cnames)
+#' @param fitted a fitted model object
+#' @param constraints a constraints object
+#' @param all.coef all the coeficients
+#' @param x a setx object
+#' @param ndim an integer specifying the number of dimensions
+#' @param cnames a character-vector specifying the names of the columns
+#' @return a matrix of simulated values
 ev.mlogit <- function (fitted, constraints, all.coef, x, ndim, cnames) {
   if (is.null(x))
     return(NA)
@@ -110,7 +122,12 @@ ev.mlogit <- function (fitted, constraints, all.coef, x, ndim, cnames) {
   return(ev)
 }
 
-pv.mlogit <- function (fitted, ev, ynames) {
+#' Simulate Predicted Values
+#' @usage pv.mlogit(fitted, ev)
+#' @param fitted a fitted model object
+#' @param ev the simulated expected values
+#' @return a vector of simulated values
+pv.mlogit <- function (fitted, ev){ #, ynames) {
   if (all(is.na(ev)))
     return(NA)
   # initialize predicted values and a matrix

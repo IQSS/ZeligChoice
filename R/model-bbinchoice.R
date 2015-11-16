@@ -1,3 +1,11 @@
+#' Bivariate Binary Choice object for inheritance across models in ZeligChoice
+#'
+#' @import methods
+#' @export Zelig-bbinchoice
+#' @exportClass Zelig-bbinchoice
+
+
+
 zbbinchoice <- setRefClass("Zelig-bbinchoice",
                           contains = "Zelig",
                           field = list(family = "ANY",

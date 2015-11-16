@@ -1,3 +1,12 @@
+#' Ordered Choice object for inheritance across models in ZeligChoice
+#'
+#' @import methods
+#' @export Zelig-obinchoice
+#' @exportClass Zelig-obinchoice
+
+
+
+
 zobinchoice <- setRefClass("Zelig-obinchoice",
                            contains = "Zelig",
                            field = list(method = "character",
@@ -9,6 +18,7 @@ zobinchoice$methods(
     callSuper()
     .self$fn <- quote(MASS::polr)
     .self$authors <- "Matthew Owen, Olivia Lau, Kosuke Imai, Gary King"
+    
     .self$year <- 2011
     .self$category <- "multinomial"
   }
@@ -22,6 +32,9 @@ zobinchoice$methods(
     .self$model.call$Hess <- TRUE
     formula <- update(formula, as.factor(.) ~ .)
     callSuper(formula = formula, data = data, ..., weights = NULL, by = by)
+    
+    #rse<-plyr::llply(.self$zelig.out$z.out, (function(x) vcovHC(x,type="HC0")))
+    #.self$test.statistics<- list(robust.se = rse)
   }
 )
 

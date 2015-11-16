@@ -1,0 +1,5 @@
+demo-blogit			example of bivariate logit model
+demo-bprobit		example of bivariate probit model
+demo-mlogit   		example of multinomial logit regression model
+demo-ologit			example of ordered logit regression model
+demo-oprobit  		example of ordered probit regression model
