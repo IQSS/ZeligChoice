@@ -11,7 +11,8 @@ Imports:
     Zelig (>= 5.0),
     MASS,
     VGAM,
-    jsonlite
+    jsonlite,
+    dplyr
 Suggests:
     testthat,
     knitr

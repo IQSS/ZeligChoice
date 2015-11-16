@@ -1,4 +1,4 @@
-import(methods, Zelig, MASS, jsonlite)
+import(methods, Zelig, MASS, jsonlite, dplyr)
 
 importFrom("VGAM", "vglm")
 
