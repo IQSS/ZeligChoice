@@ -1,9 +1,10 @@
 import(methods, Zelig, MASS, jsonlite, dplyr)
 
 importFrom("VGAM", "vglm")
+importFrom("stats", "runif", "rlogis", "plogis")
 
 importClassesFrom("VGAM", "vglm")
-importMethodsFrom("VGAM", "coef", "fitted", "plot", "predict", "summary", "vcov")
+importMethodsFrom("VGAM", "coef", "fitted", "predicted", "vcov")
 
 exportPattern("^[[:alpha:]]+")
 exportClasses(
