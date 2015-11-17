@@ -27,28 +27,27 @@ zologit$methods(
   }
 )
 
+
 zologit$methods(
-  test = function(b0 = -1, b1 = 1, nsim = 1000, minx = -1, maxx = 1) {
-    
-    x.init <- mcunit.init(nsim, minx, maxx)
-    xb <- b0 + b1 * x.init[,1]
-    
-    y.star <- rlogis(nsim, xb, 1)
-    t1 <- qnorm(.25, mean=mean(xb), sd = 1)
-    t2 <- qnorm(.5, mean=mean(xb), sd = 1)
-    t3 <- qnorm(.75, mean=mean(xb), sd = 1)
-    
-    y.sim = rep(NA, nsim)
-    y.sim[y.star < t1] <- 1
-    y.sim[y.star >= t1 & y.star < t2] <- 2
-    y.sim[y.star >= t2] <- 3
-    
-    y.true <- rep(NA, nsim)
-    data <- data.frame(cbind(x.init, y.sim, y.true))
-    #     return(data)
-    # 
-    z <- zologit$new()
-    callSuper(z, data)
-    
+  mcfun = function(x, b0=0, b1=1, ..., sim=TRUE){
+    mu <- b0 + b1 * x
+    n.sim = length(x)
+    y.star <- rlogis(n = n.sim, location = mu, scale = 1)  # latent continuous y 
+    t <- c(0,1,2)  # vector of cutpoints dividing latent space into ordered outcomes
+
+    if(sim){
+      y.obs <- rep(1, n.sim)
+      for(i in 1:length(t)){
+        y.obs <- y.obs + as.numeric(y.star > t[i]) # observed ordered outcome
+      }
+      return(as.factor(y.obs))
+    }else{
+      y.obs.hat <- rep(1, n.sim)
+      for(i in 1:length(t)){
+        y.obs.hat <- y.obs.hat + plogis(q = t[i], location = mu , scale = 1, lower.tail = FALSE) # expectation of observed ordered outcome
+      }
+      return(y.obs.hat)
+    }
   }
 )
+
