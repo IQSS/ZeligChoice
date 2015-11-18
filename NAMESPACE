@@ -1,7 +1,7 @@
 import(methods, Zelig, jsonlite, dplyr)
 
 importFrom("MASS", "polr", "mvrnorm")
-importFrom("VGAM", "vglm", "binom2.or")
+importFrom("VGAM", "vglm", "binom2.or", "binom2.rho")
 importFrom("stats", "runif", "rlogis", "plogis")
 
 importClassesFrom("VGAM", "vglm")
