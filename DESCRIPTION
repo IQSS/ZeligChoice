@@ -6,6 +6,7 @@ Author: Christine Choirat, James Honaker, Kosuke Imai, Gary King, Olivia Lau
 Description: Add-on package for Zelig 5. Enables the use of a variety of logit
     and probit regressions.
 Version: 0.9-0
+Date: 2015-11-18
 Imports:
     methods,
     Zelig (>= 5.0),
