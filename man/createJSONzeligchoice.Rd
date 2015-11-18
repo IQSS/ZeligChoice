@@ -1,8 +1,8 @@
-\name{createJSON}
-\alias{createJSON}
+\name{createJSONzeligchoice}
+\alias{createJSONzeligchoice}
 \title{Utility function for constructing JSON file that encodes the hierarchy of available statistical models in ZeligChoice}
 \usage{
-createJSON()
+createJSONzeligchoice()
 }
 \value{
 Returns TRUE on successful completion of json file
@@ -13,4 +13,3 @@ Utility function for construction a JSON file that encodes the hierarchy of avai
 \author{
 Christine Choirat, Vito D'Orazio
 }
-

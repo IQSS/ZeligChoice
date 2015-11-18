@@ -8,7 +8,7 @@
 #library(jsonlite)
 
 
-createJSON <- function(){
+createJSONzeligchoice <- function(){
 
   z5blogit <- zblogit$new()
   z5blogit$toJSON()
