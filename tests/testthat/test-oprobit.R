@@ -1,3 +1,3 @@
 z <- zoprobit$new()
-test <- z$mcunit(minx=-2, maxx=4, plot=FALSE)
+test <- z$mcunit(minx=0, maxx=2, plot=FALSE)
 expect_true(test)
