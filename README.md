@@ -8,4 +8,4 @@ http://zeligproject.org
 
 <br>
 
-![Example Page](images/ologitoutput.png)
+![Example Page](images/output2.png)
