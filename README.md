@@ -4,3 +4,8 @@
 
 Project page and publications available at: 
 http://zeligproject.org
+
+
+<br>
+
+![Example Page](images/ologitoutput.png)
