@@ -149,3 +149,29 @@ pv.mlogit <- function (fitted, ev){ #, ynames) {
   return(pv.matrix)
 }
 
+zmlogit$methods(
+  mcfun = function(x, b0=-0.5, b1=0.5, b2=-1, b3=1, ..., sim=TRUE){
+    mu1 <- b0 + b1 * x
+    mu2 <- b2 + b3 * x
+
+    if(sim){
+      n.sim = length(x)
+      y.star.1 <- exp( rlogis(n = n.sim, location = mu1, scale = 1) ) # latent continuous y
+      y.star.2 <- exp( rlogis(n = n.sim, location = mu2, scale = 1) ) # latent continuous y
+      pi1 <- y.star.1/(1 + y.star.1 + y.star.2)
+      pi2 <- y.star.2/(1 + y.star.1 + y.star.2)
+      pi3 <- 1 - pi1 - pi2
+
+      y.draw <- runif(n=n.sim)
+      y.obs <- 1 + as.numeric(y.draw>pi1) + as.numeric(y.draw>(pi1 + pi2))
+      return(as.factor(y.obs))
+    }else{
+      pi1.hat <- exp(mu1)/(1 + exp(mu1) + exp(mu2))
+      pi2.hat <- exp(mu2)/(1 + exp(mu1) + exp(mu2))
+      pi3.hat <- 1 - pi1.hat - pi2.hat
+      
+      y.obs.hat <- pi1.hat*1 + pi2.hat*2 + pi3.hat*3    # This is the expectation the MC test will check, although it is not substantively meaningful for factor dep. var.
+      return(y.obs.hat)
+    }
+  }
+)
