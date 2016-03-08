@@ -5,11 +5,11 @@ Title: Zelig Choice Models
 Author: Christine Choirat, James Honaker, Kosuke Imai, Gary King, Olivia Lau
 Description: Add-on package for Zelig 5. Enables the use of a variety of logit
     and probit regressions.
-Version: 0.9-0
-Date: 2015-12-01
+Version: 0.9-1
+Date: 2016-03-08
 Imports:
     methods,
-    Zelig (>= 5.0-9),
+    Zelig (>= 5.0-10),
     MASS,
     VGAM,
     jsonlite,
