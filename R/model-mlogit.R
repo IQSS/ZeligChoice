@@ -37,12 +37,6 @@ zmlogit$methods(
 )
 
 zmlogit$methods(
-  param = function(z.out) {
-    return(mvrnorm(.self$num, coef(z.out), vcov(z.out)))
-  }
-)
-
-zmlogit$methods(
   # From ZeligChoice 4
   qi = function(simparam, mm) {
     fitted <- .self$zelig.out$z.out[[1]]
