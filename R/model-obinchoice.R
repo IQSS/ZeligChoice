@@ -25,13 +25,13 @@ zobinchoice$methods(
 )
 
 zobinchoice$methods(
-  zelig = function(formula, data, ..., weights = NULL, by = NULL) {
+  zelig = function(formula, data, ..., weights = NULL, by = NULL, bootstrap = FALSE) {
     .self$zelig.call <- match.call(expand.dots = TRUE)
     .self$model.call <- match.call(expand.dots = TRUE)
     .self$model.call$method <- .self$method
     .self$model.call$Hess <- TRUE
     formula <- update(formula, as.factor(.) ~ .)
-    callSuper(formula = formula, data = data, ..., weights = NULL, by = by)
+    callSuper(formula = formula, data = data, ..., weights = NULL, by = by, bootstrap = bootstrap)
     
     #rse<-plyr::llply(.self$zelig.out$z.out, (function(x) vcovHC(x,type="HC0")))
     #.self$test.statistics<- list(robust.se = rse)
