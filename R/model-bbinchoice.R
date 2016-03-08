@@ -33,6 +33,18 @@ zbbinchoice$methods(
 )
 
 zbbinchoice$methods(
+  param = function(z.out, method="mvn") {
+    if(identical(method,"mvn")){
+      return(mvrnorm(.self$num, coef(z.out), vcov(z.out))) 
+    } else if(identical(method,"point")){
+      return(t(as.matrix(coef(z.out))))
+    } else {
+      stop("param called with method argument of undefined type.")
+    }
+  }
+)
+
+zbbinchoice$methods(
   # From Zelig 4
   qi = function(simparam, mm) {
     .pp <- function(object, constr, all.coef, x) {

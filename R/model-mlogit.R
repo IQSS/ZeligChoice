@@ -37,6 +37,18 @@ zmlogit$methods(
 )
 
 zmlogit$methods(
+  param = function(z.out, method="mvn") {
+    if(identical(method,"mvn")){
+      return(mvrnorm(.self$num, coef(z.out), vcov(z.out))) 
+    } else if(identical(method,"point")){
+      return(t(as.matrix(coef(z.out))))
+    } else {
+      stop("param called with method argument of undefined type.")
+    }
+  }
+)
+
+zmlogit$methods(
   # From ZeligChoice 4
   qi = function(simparam, mm) {
     fitted <- .self$zelig.out$z.out[[1]]
