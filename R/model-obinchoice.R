@@ -52,7 +52,7 @@ zobinchoice$methods(
       simparam <- list(simparam = simparam.local, simalpha = simalpha)
       return(simparam)
     }else if(identical(method, "point")){
-      return(list(simparam =t(as.matrix(c(coef, theta)), simalpha = simalpha))
+      return(list(simparam =t(as.matrix(c(coef, theta))), simalpha = simalpha))
     }
   }
 )
