@@ -1,5 +1,5 @@
 Package: ZeligChoice
-License: GPL (>=2)
+License: GPL (>=3)
 Title: Zelig Choice Models
 Authors@R: c(
     person("Christine.", "Choirat", role = "aut"),
@@ -26,12 +26,13 @@ Imports:
 Suggests:
     testthat,
     knitr
-Collate:
+Collate: 
+    'model-mlogit.R'
     'model-obinchoice.R'
     'model-oprobit.R'
     'model-ologit.R'
-    'model-mlogit.R'
     'model-bbinchoice.R'
     'model-bprobit.R'
     'model-blogit.R'
     'create-json.R'
+RoxygenNote: 6.0.0
