@@ -123,7 +123,7 @@ ev.mlogit <- function (fitted, constraints, all.coef, x, ndim, cnames) {
   }
   for (i in 1:ndim)
     sim.eta <- cbind(sim.eta, all.coef[[i]] %*% as.matrix(xm[[i]]))
-  ev <- linkinv(sim.eta)
+  ev <- linkinv(sim.eta, extra = fitted@extra)
   colnames(ev) <- cnames
   return(ev)
 }
