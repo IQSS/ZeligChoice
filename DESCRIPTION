@@ -17,12 +17,12 @@ BugReports: https://github.com/IQSS/Zelig/issues
 Version: 0.9-3
 Date: 2017-02-06
 Imports:
-    methods,
-    Zelig (>= 5.0-14),
-    MASS,
-    VGAM,
+    dplyr,
     jsonlite,
-    dplyr
+    MASS,
+    methods,
+    VGAM,
+    Zelig (>= 5.0-14),
 Suggests:
     testthat,
     knitr
