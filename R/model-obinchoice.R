@@ -25,13 +25,15 @@ zobinchoice$methods(
 )
 
 zobinchoice$methods(
-  zelig = function(formula, data, ..., weights = NULL, by = NULL, bootstrap = FALSE) {
+  zelig = function(formula, data, ..., weights = NULL, by = NULL, 
+                   bootstrap = FALSE) {
     .self$zelig.call <- match.call(expand.dots = TRUE)
     .self$model.call <- match.call(expand.dots = TRUE)
     .self$model.call$method <- .self$method
     .self$model.call$Hess <- TRUE
-    formula <- update(formula, as.factor(.) ~ .)
-    callSuper(formula = formula, data = data, ..., weights = NULL, by = by, bootstrap = bootstrap)
+    localformula <- update(formula, as.factor(.) ~ .)
+    callSuper(formula = localformula, data = data, ..., weights = NULL, by = by, 
+              bootstrap = bootstrap)
     
     #rse<-plyr::llply(.self$zelig.out$z.out, (function(x) vcovHC(x,type="HC0")))
     #.self$test.statistics<- list(robust.se = rse)
@@ -48,8 +50,8 @@ zobinchoice$methods(
     simalpha <- list(coef = coef, zeta = zeta, lev = z.out$lev)
 
     if(identical(method, "mvn")){
-      simparam.local <- mvrnorm(.self$num, c(coef, theta), vcov(z.out))
-      simparam <- list(simparam = simparam.local, simalpha = simalpha)
+      localsimparam <- mvrnorm(.self$num, c(coef, theta), vcov(z.out))
+      .self$simparam <- list(simparam = localsimparam, simalpha = simalpha)
       return(simparam)
     }else if(identical(method, "point")){
       return(list(simparam =t(as.matrix(c(coef, theta))), simalpha = simalpha))
