@@ -51,8 +51,7 @@ zobinchoice$methods(
 
     if(identical(method, "mvn")){
       localsimparam <- mvrnorm(.self$num, c(coef, theta), vcov(z.out))
-      .self$simparam <- list(simparam = localsimparam, simalpha = simalpha)
-      return(simparam)
+      return(list(simparam = localsimparam, simalpha = simalpha))
     }else if(identical(method, "point")){
       return(list(simparam =t(as.matrix(c(coef, theta))), simalpha = simalpha))
     }
