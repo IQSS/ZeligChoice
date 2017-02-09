@@ -14,8 +14,8 @@ Description: Add-on package for Zelig 5. Enables the use of a variety of logit
     and probit regressions.
 URL: https://cran.r-project.org/package=ZeligChoice
 BugReports: https://github.com/IQSS/Zelig/issues
-Version: 0.9-3
-Date: 2017-02-06
+Version: 0.9-4
+Date: 2017-02-09
 Imports:
     dplyr,
     jsonlite,
@@ -35,4 +35,4 @@ Collate:
     'model-bprobit.R'
     'model-blogit.R'
     'create-json.R'
-RoxygenNote: 6.0.0
+RoxygenNote: 6.0.1
