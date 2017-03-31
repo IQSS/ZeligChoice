@@ -1,3 +1,7 @@
+#  ZeligChoice version 0.9-5
+
+- Minor changes for compatibility with Zelig 5.1-0.
+
 # ZeligChoice version 0.9-4
 
 - Requires Zelig version 5.0-16, resolving plotting regression.

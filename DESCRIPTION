@@ -14,10 +14,11 @@ Description: Add-on package for Zelig 5. Enables the use of a variety of logit
     and probit regressions.
 URL: https://cran.r-project.org/package=ZeligChoice
 BugReports: https://github.com/IQSS/Zelig/issues
-Version: 0.9-4
-Date: 2017-03-01
+Version: 0.9-5
+Date: 2017-03-31
 Imports:
     dplyr,
+    Formula,
     jsonlite,
     MASS,
     methods,

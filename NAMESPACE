@@ -4,6 +4,8 @@ importFrom("MASS", "polr", "mvrnorm")
 importFrom("VGAM", "vglm", "binom2.or", "binom2.rho", "constraints", "constraints.vlm")
 importFrom("stats", "runif", "rlogis", "plogis")
 
+importFrom("Formula", "as.Formula")
+
 importClassesFrom("VGAM", "vglm")
 importMethodsFrom("VGAM", "coef", "fitted", "predict", "vcov")
 
