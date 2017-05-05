@@ -23,10 +23,11 @@ Imports:
     MASS,
     methods,
     VGAM,
-    Zelig (>= 5.0-16),
+    Zelig (> 5.0-17),
 Suggests:
     testthat,
-    knitr
+    knitr,
+    zeligverse
 Collate: 
     'model-mlogit.R'
     'model-obinchoice.R'

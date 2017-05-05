@@ -16,30 +16,21 @@ Project page and publications available at: <http://zeligproject.org>
 Use
 ---
 
-ZeligChoice follows the same workflow as core [Zelig](https://github.com/IQSS/Zelig#zelig-5-workflow-overview).
+**ZeligChoice** follows the same workflow as core [Zelig](https://github.com/IQSS/Zelig#zelig-5-workflow-overview).
 
-Here us a simple example using the Zelig 4 wrappers (you can also use Zelig 5 reference classes):
+Here us a simple example using the Zelig 4 wrappers (you can also use Zelig 5 reference classes). Note: installing and loading the **zeligverse** package will install and load all of the packages you need to use **ZeligChoice**.
 
 ``` r
 # Load required packages
-library(Zelig)
-library(ZeligChoice)
+library(zeligverse)
 
 # Load example data
 data(mexico)
 
 # Extimate model
 z.out <- zelig(as.factor(vote88) ~ pristr + othcok + othsocok,
-               model = "mlogit", data = mexico)
-```
+               model = "mlogit", data = mexico, cite = FALSE)
 
-    ## How to cite this model in Zelig:
-    ##   Thomas W. Yee. 2007.
-    ##   mlogit: Multinomial Logistic Regression for Dependent Variables with Unordered Categorical Values
-    ##   in Christine Choirat, Christopher Gandrud, James Honaker, Kosuke Imai, Gary King, and Olivia Lau,
-    ##   "Zelig: Everyone's Statistical Software," http://zeligproject.org/
-
-``` r
 # Set fitted values
 x.out <- setx(z.out)
 
@@ -55,7 +46,7 @@ plot(s.out)
 Installation
 ------------
 
-You can install ZeligChoice from CRAN or from GitHub with:
+You can install ZeligChoice from CRAN or, the developerment version from GitHub with:
 
 ``` r
 # install.packages("devtools")
