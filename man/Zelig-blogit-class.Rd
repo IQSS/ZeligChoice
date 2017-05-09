@@ -6,6 +6,6 @@
 \alias{zblogit}
 \title{Bivariate Logistic Regression for Two Dichotomous Dependent Variables}
 \description{
-Vignette: \url{http://docs.zeligproject.org/en/latest/zeligchoice-blogit.html}
+Vignette: \url{http://docs.zeligproject.org/article/zeligchoice-blogit.html}
 }
 

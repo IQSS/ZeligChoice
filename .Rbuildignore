@@ -5,3 +5,4 @@ images
 ^\.travis\.yml$
 ^README\.Rmd$
 ^README_files/*
+^\.iqss_reportcard\.yml$

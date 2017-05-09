@@ -6,7 +6,7 @@
 \alias{zmlogit}
 \title{Multinomial Logistic Regression for Dependent Variables with Unordered Categorical Values}
 \description{
-Vignette: \url{http://docs.zeligproject.org/en/latest/zeligchoice-mlogit.html}
+Vignette: \url{http://docs.zeligproject.org/article/zeligchoice-mlogit.html}
 }
 \section{Methods}{
 

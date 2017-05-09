@@ -1,6 +1,6 @@
 #' Bivariate Logistic Regression for Two Dichotomous Dependent Variables
 #'
-#' Vignette: \url{http://docs.zeligproject.org/en/latest/zeligchoice-blogit.html}
+#' Vignette: \url{http://docs.zeligproject.org/article/zeligchoice-blogit.html}
 #' @import methods
 #' @export Zelig-blogit
 #' @exportClass Zelig-blogit
@@ -18,7 +18,7 @@ zblogit$methods(
     .self$family <- quote(binom2.or(zero = 3))
     .self$linkinv <- binom2.or()@linkinv
     .self$wrapper <- "blogit"
-    .self$vignette.url <- "http://docs.zeligproject.org/en/latest/zeligchoice-blogit.html"
+    .self$vignette.url <- "http://docs.zeligproject.org/article/zeligchoice-blogit.html"
   }
 )
 
