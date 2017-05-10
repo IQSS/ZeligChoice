@@ -6,6 +6,6 @@
 \alias{zologit}
 \title{Ordinal Logistic Regression for Ordered Categorical Dependent Variables}
 \description{
-Vignette: \url{http://docs.zeligproject.org/article/zeligchoice-ologit.html}
+Vignette: \url{http://docs.zeligproject.org/articles/zeligchoice_ologit.html}
 }
 

@@ -6,6 +6,6 @@
 \alias{zoprobit}
 \title{Ordinal Probit Regression for Ordered Categorical Dependent Variables}
 \description{
-Vignette: \url{http://docs.zeligproject.org/article/zeligchoice-oprobit.html}
+Vignette: \url{http://docs.zeligproject.org/articles/zeligchoice_oprobit.html}
 }
 
