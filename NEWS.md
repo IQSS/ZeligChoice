@@ -1,7 +1,7 @@
 ZeligChoice version 0.9-6
 ===============================
 
-- Test added to assess Zelig 5.1-2's `from_zelig_model` with `mlogit` 
+- Test added to assess Zelig 5.1-2's getters with `mlogit` 
 estimated models.
 
 ZeligChoice version 0.9-5
