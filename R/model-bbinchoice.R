@@ -28,7 +28,10 @@ zbbinchoice$methods(
     .self$zelig.call <- match.call(expand.dots = TRUE)
     .self$model.call <- match.call(expand.dots = TRUE)
     .self$model.call$family <- .self$family
-    callSuper(formula = formula, data = data, ..., weights = NULL, by = by, bootstrap = bootstrap)
+    if (!is.null(weights)) 
+        message('Note: Zelig weight results may differ from those in VGAM::vglm.')
+    callSuper(formula = formula, data = data, ..., weights = weights, by = by, 
+              bootstrap = bootstrap)
   }
 )
 

@@ -32,7 +32,8 @@ zobinchoice$methods(
     .self$model.call$method <- .self$method
     .self$model.call$Hess <- TRUE
     localformula <- update(formula, as.factor(.) ~ .)
-browser()
+    if (!is.null(weights)) 
+        message('Note: Zelig weight results may differ from those in MASS::polr.')
     callSuper(formula = localformula, data = data, ..., weights = weights, 
               by = by, bootstrap = bootstrap)
 

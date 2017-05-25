@@ -29,7 +29,7 @@ zologit$methods(
 
 
 zologit$methods(
-  mcfun = function(x, b0=0, b1=1, ..., sim=TRUE){
+  mcfun = function(x, b0 = 0, b1 = 1, ..., sim = TRUE){
     mu <- b0 + b1 * x
     n.sim = length(x)
     y.star <- rlogis(n = n.sim, location = mu, scale = 1)  # latent continuous y
