@@ -18,23 +18,25 @@ zobinchoice$methods(
     callSuper()
     .self$fn <- quote(MASS::polr)
     .self$authors <- "Matthew Owen, Olivia Lau, Kosuke Imai, Gary King"
-    
+
     .self$year <- 2011
     .self$category <- "multinomial"
   }
 )
 
 zobinchoice$methods(
-  zelig = function(formula, data, ..., weights = NULL, by = NULL, 
+  zelig = function(formula, data, ..., weights = NULL, by = NULL,
                    bootstrap = FALSE) {
     .self$zelig.call <- match.call(expand.dots = TRUE)
     .self$model.call <- match.call(expand.dots = TRUE)
     .self$model.call$method <- .self$method
     .self$model.call$Hess <- TRUE
     localformula <- update(formula, as.factor(.) ~ .)
-    callSuper(formula = localformula, data = data, ..., weights = NULL, by = by, 
-              bootstrap = bootstrap)
-    
+    if (!is.null(weights)) 
+        message('Note: Zelig weight results may differ from those in MASS::polr.')
+    callSuper(formula = localformula, data = data, ..., weights = weights, 
+              by = by, bootstrap = bootstrap)
+
     #rse<-plyr::llply(.self$zelig.out$z.out, (function(x) vcovHC(x,type="HC0")))
     #.self$test.statistics<- list(robust.se = rse)
   }
@@ -77,9 +79,9 @@ zobinchoice$methods(
                                          drop = FALSE]
     sim.zeta[, -1] <- exp(sim.theta[, -1])
     sim.zeta <- t(apply(sim.zeta, 1, cumsum))
-    
+
     ##----- Expected value
-    
+
     k <- length(zeta) + 1
     # remove (Intercept), make sure matrix is numeric
     mat <- as.numeric(as.matrix(mm)[, -1])
@@ -96,7 +98,7 @@ zobinchoice$methods(
     # remove unnecessary dimensions
     ev <- ev[, , 1]
     colnames(ev) <- lev
-    
+
     ##----- Predicted value
     pv <- matrix(NA, nrow = .self$num, ncol = nrow(as.matrix(mm)))
     tmp <- matrix(runif(length(cuts[, 1, ]), 0, 1),
@@ -104,12 +106,12 @@ zobinchoice$methods(
                   ncol = nrow(mm))
     for (j in 1:k)
       Ipv[, j, ] <- as.integer(tmp > cuts[, j, ])
-    for (j in 1:nrow(mm)) 
+    for (j in 1:nrow(mm))
       pv[, j] <- 1 + rowSums(Ipv[, , j, drop = FALSE])
     factors <- factor(pv,
                       labels = lev[1:length(lev) %in% sort(unique(pv))],
                       ordered = TRUE)
-    
+
     return(list(ev = ev, pv = pv))
   }
 )

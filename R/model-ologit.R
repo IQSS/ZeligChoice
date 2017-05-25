@@ -4,7 +4,7 @@
 #' @import methods
 #' @export Zelig-ologit
 #' @exportClass Zelig-ologit
-#' 
+#'
 #' @include model-obinchoice.R
 
 zologit <- setRefClass("Zelig-ologit",
@@ -29,10 +29,10 @@ zologit$methods(
 
 
 zologit$methods(
-  mcfun = function(x, b0=0, b1=1, ..., sim=TRUE){
+  mcfun = function(x, b0 = 0, b1 = 1, ..., sim = TRUE){
     mu <- b0 + b1 * x
     n.sim = length(x)
-    y.star <- rlogis(n = n.sim, location = mu, scale = 1)  # latent continuous y 
+    y.star <- rlogis(n = n.sim, location = mu, scale = 1)  # latent continuous y
     t <- c(0,1,2)  # vector of cutpoints dividing latent space into ordered outcomes
 
     if(sim){
@@ -50,4 +50,3 @@ zologit$methods(
     }
   }
 )
-
