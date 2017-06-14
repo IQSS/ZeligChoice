@@ -23,7 +23,7 @@ Imports:
     MASS,
     methods,
     VGAM,
-    Zelig (>= 5.1-1),
+    Zelig (>= 5.1-1)
 Suggests:
     testthat,
     knitr,

@@ -5,7 +5,85 @@
 \alias{Zelig-bprobit-class}
 \alias{zbprobit}
 \title{Bivariate Probit Regression for Two Dichotomous Dependent Variables}
+\arguments{
+\item{formula}{a symbolic representation of the model to be
+estimated, in the form \code{cbind(y1,y2) \~\, x1 + x2}, where \code{y1} and \code{y2} are the
+dependent variables and \code{x1} and \code{x2} are the explanatory
+variables, and \code{y}, \code{x1}, and \code{x2} are contained in the
+same dataset. (You may include more than two explanatory variables,
+of course.) The \code{+} symbol means ``inclusion'' not
+``addition.'' You may also include interaction terms and main
+effects in the form \code{x1*x2} without computing them in prior
+steps; \code{I(x1*x2)} to include only the interaction term and
+exclude the main effects; and quadratic terms in the form
+\code{I(x1^2)}. See details section for further information.}
+
+\item{model}{the name of a statistical model to estimate.
+For a list of supported models and their documentation see:
+\url{http://docs.zeligproject.org/articles/}.}
+
+\item{data}{the name of a data frame containing the variables
+referenced in the formula or a list of multiply imputed data frames
+each having the same variable names and row numbers (created by
+\code{Amelia} or \code{\link{to_zelig_mi}}).}
+
+\item{...}{additional arguments passed to \code{zelig},
+relevant for the model to be estimated.}
+
+\item{by}{a factor variable contained in \code{data}. If supplied,
+\code{zelig} will subset
+the data frame based on the levels in the \code{by} variable, and
+estimate a model for each subset. This can save a considerable amount of
+effort. For example, to run the same model on all fifty states, you could
+use: \code{z.out <- zelig(y ~ x1 + x2, data = mydata, model = 'ls',
+by = 'state')} You may also use \code{by} to run models using MatchIt
+subclasses.}
+
+\item{cite}{If is set to 'TRUE' (default), the model citation will be printed
+to the console.}
+}
+\value{
+Depending on the class of model selected, \code{zelig} will return
+  an object with elements including \code{coefficients}, \code{residuals},
+  and \code{formula} which may be summarized using
+  \code{summary(z.out)} or individually extracted using, for example,
+  \code{coef(z.out)}. See
+  \url{http://docs.zeligproject.org/articles/getters.html} for a list of
+  functions to extract model components. You can also extract whole fitted
+  model objects using \code{\link{from_zelig_model}}.
+}
 \description{
-Vignette: \url{http://docs.zeligproject.org/articles/zeligchoice_bprobit.html}
+Bivariate Probit Regression for Two Dichotomous Dependent Variables
+}
+\details{
+Formula Details: In every bivariate probit specification, there are three equations
+ which correspond to each dependent variable (Y1Y1, Y2Y2), and the 
+ correlation parameter ρρ. Since the correlation parameter does not correspond 
+ to one of the dependent variables, the model estimates ρρ as a constant by default. 
+ Hence, only two formulas (for μ1μ1 and μ2μ2) are required. If the explanatory variables 
+ for μ1μ1 and μ2μ2 are the same and effects are estimated separately for each parameter,
+ you may use the following short hand: \code{fml <- list(cbind(Y1,Y2) ~ X1 + X2)} which
+ has the same meaning as: \code{fml <- list(mu1 = Y1 ~ X1 + X2, + mu2 = Y2 ~ X1 + X2)}.
+
+Additional parameters avaialable to many models include:
+\itemize{
+  \item weights: vector of weight values or a name of a variable in the dataset
+  by which to weight the model. For more information see:
+  \url{http://docs.zeligproject.org/articles/weights.html}.
+  \item bootstrap: logical or numeric. If \code{FALSE} don't use bootstraps to
+  robustly estimate uncertainty around model parameters due to sampling error.
+  If an integer is supplied, the number of boostraps to run.
+  For more information see:
+  \url{http://docs.zeligproject.org/articles/bootstraps.html}.
+}
 }
 
+\examples{
+library(zeligverse) 
+data(sanction)
+z.out1 <- zelig(cbind(import, export) ~ coop + cost + target,model = "bprobit", data = sanction)
+
+}
+\seealso{
+Vignette: \url{http://docs.zeligproject.org/articles/zeligchoice_bprobit.html}
+}
