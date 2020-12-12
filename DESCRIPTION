@@ -3,19 +3,20 @@ License: GPL (>=3)
 Title: Zelig Choice Models
 Authors@R: c(
     person("Christine.", "Choirat", role = "aut"),
-    person("Christopher", "Gandrud", email = "zelig.zee@gmail.com",
-    role = c("aut", "cre")),
+    person("Christopher", "Gandrud", role = "aut"),
     person("James", "Honaker", role = "aut"),
     person("Kosuke", "Imai", role = "aut"),
     person("Gary", "King", role = "aut"),
-    person("Olivia", "Lau", role = "aut")
+    person("Olivia", "Lau", role = "aut"),
+    person("Robert", "Treacy", email = "zelig.zee@gmail.com", role = c("aut", "cre")),
+    person("IQSS", "Harvard University", role = "cph")
     )
 Description: Add-on package for Zelig 5. Enables the use of a variety of logit
     and probit regressions.
 URL: https://cran.r-project.org/package=ZeligChoice
 BugReports: https://github.com/IQSS/Zelig/issues
-Version: 0.9-6
-Date: 2017-06-07
+Version: 0.10.0
+Date: 2020-12-12
 Imports:
     dplyr,
     Formula,
@@ -23,11 +24,10 @@ Imports:
     MASS,
     methods,
     VGAM,
-    Zelig (>= 5.1-1),
+    Zelig (>= 5.1.7),
 Suggests:
     testthat,
-    knitr,
-    zeligverse
+    knitr
 Collate: 
     'model-mlogit.R'
     'model-obinchoice.R'
