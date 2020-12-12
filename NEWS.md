@@ -1,3 +1,8 @@
+ZeligChoice version 0.10.0
+===============================
+
+- New maintainer @rtreacy (inherits same email address).
+
 ZeligChoice version 0.9-6
 ===============================
 
