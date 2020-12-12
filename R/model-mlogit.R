@@ -1,6 +1,6 @@
 #' Multinomial Logistic Regression for Dependent Variables with Unordered Categorical Values
 #'
-#' Vignette: \url{http://docs.zeligproject.org/articles/zeligchoice_mlogit.html}
+#' Vignette: \url{https://docs.zeligproject.org/articles/zeligchoice_mlogit.html}
 #' @import methods
 #' @export Zelig-bprobit
 #' @exportClass Zelig-bprobit
@@ -23,7 +23,7 @@ zmlogit$methods(
     .self$category <- "multinomial"
     .self$family <- "multinomial"
     .self$wrapper <- "mlogit"
-    .self$vignette.url <- "http://docs.zeligproject.org/articles/zeligchoice_mlogit.html"
+    .self$vignette.url <- "https://docs.zeligproject.org/articles/zeligchoice_mlogit.html"
   }
 )
 

@@ -6,12 +6,11 @@
 \alias{zmlogit}
 \title{Multinomial Logistic Regression for Dependent Variables with Unordered Categorical Values}
 \description{
-Vignette: \url{http://docs.zeligproject.org/articles/zeligchoice_mlogit.html}
+Vignette: \url{https://docs.zeligproject.org/articles/zeligchoice_mlogit.html}
 }
 \section{Methods}{
 
 \describe{
-\item{\code{zelig(formula, data, model = NULL, ..., weights = NULL, by,
-  bootstrap = FALSE)}}{The zelig function estimates a variety of statistical models}
+\item{\code{zelig(formula, data, model = NULL, ..., weights = NULL, by, bootstrap = FALSE)}}{The zelig function estimates a variety of statistical models}
 }}
 

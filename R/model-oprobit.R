@@ -1,6 +1,6 @@
 #' Ordinal Probit Regression for Ordered Categorical Dependent Variables
 #'
-#' Vignette: \url{http://docs.zeligproject.org/articles/zeligchoice_oprobit.html}
+#' Vignette: \url{https://docs.zeligproject.org/articles/zeligchoice_oprobit.html}
 #' @import methods
 #' @export Zelig-ologit
 #' @exportClass Zelig-ologit
@@ -23,7 +23,7 @@ zoprobit$methods(
       return(tmp1)
     }
     .self$wrapper <- "oprobit"
-    .self$vignette.url <- "http://docs.zeligproject.org/articles/zeligchoice_oprobit.html"
+    .self$vignette.url <- "https://docs.zeligproject.org/articles/zeligchoice_oprobit.html"
   }
 )
 

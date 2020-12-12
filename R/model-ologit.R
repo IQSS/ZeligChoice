@@ -1,6 +1,6 @@
 #' Ordinal Logistic Regression for Ordered Categorical Dependent Variables
 #'
-#' Vignette: \url{http://docs.zeligproject.org/articles/zeligchoice_ologit.html}
+#' Vignette: \url{https://docs.zeligproject.org/articles/zeligchoice_ologit.html}
 #' @import methods
 #' @export Zelig-ologit
 #' @exportClass Zelig-ologit
@@ -23,7 +23,7 @@ zologit$methods(
       return(tmp1)
     }
     .self$wrapper <- "ologit"
-    .self$vignette.url <- "http://docs.zeligproject.org/articles/zeligchoice_ologit.html"
+    .self$vignette.url <- "https://docs.zeligproject.org/articles/zeligchoice_ologit.html"
   }
 )
 

@@ -1,6 +1,6 @@
 #' Bivariate Probit Regression for Two Dichotomous Dependent Variables
 #'
-#' Vignette: \url{http://docs.zeligproject.org/articles/zeligchoice_bprobit.html}
+#' Vignette: \url{https://docs.zeligproject.org/articles/zeligchoice_bprobit.html}
 #' @import methods
 #' @export Zelig-bprobit
 #' @exportClass Zelig-bprobit
@@ -18,7 +18,7 @@ zbprobit$methods(
     .self$family <- quote(binom2.rho(zero = 3))
     .self$linkinv <- binom2.rho()@linkinv
     .self$wrapper <- "bprobit"
-    .self$vignette.url <- "http://docs.zeligproject.org/articles/zeligchoice_bprobit.html"
+    .self$vignette.url <- "https://docs.zeligproject.org/articles/zeligchoice_bprobit.html"
   }
 )
 

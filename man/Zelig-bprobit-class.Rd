@@ -6,6 +6,6 @@
 \alias{zbprobit}
 \title{Bivariate Probit Regression for Two Dichotomous Dependent Variables}
 \description{
-Vignette: \url{http://docs.zeligproject.org/articles/zeligchoice_bprobit.html}
+Vignette: \url{https://docs.zeligproject.org/articles/zeligchoice_bprobit.html}
 }
 

@@ -9,7 +9,7 @@
       "explanatory": {
         "modelingType": ["continuous", "discrete", "nominal", "ordinal", "binary"]
       },
-      "vignette.url": ["http://docs.zeligproject.org/articles/zeligchoice_blogit.html"],
+      "vignette.url": ["https://docs.zeligproject.org/articles/zeligchoice_blogit.html"],
       "wrapper": ["blogit"],
       "tree": ["Zelig-blogit", "Zelig-bbinchoice"]
     },
@@ -22,7 +22,7 @@
       "explanatory": {
         "modelingType": ["continuous", "discrete", "nominal", "ordinal", "binary"]
       },
-      "vignette.url": ["http://docs.zeligproject.org/articles/zeligchoice_bprobit.html"],
+      "vignette.url": ["https://docs.zeligproject.org/articles/zeligchoice_bprobit.html"],
       "wrapper": ["bprobit"],
       "tree": ["Zelig-bprobit", "Zelig-bbinchoice"]
     },
@@ -35,7 +35,7 @@
       "explanatory": {
         "modelingType": ["continuous", "discrete", "nominal", "ordinal", "binary"]
       },
-      "vignette.url": ["http://docs.zeligproject.org/articles/zeligchoice_mlogit.html"],
+      "vignette.url": ["https://docs.zeligproject.org/articles/zeligchoice_mlogit.html"],
       "wrapper": ["mlogit"],
       "tree": ["Zelig-mlogit"]
     },
@@ -48,7 +48,7 @@
       "explanatory": {
         "modelingType": ["continuous", "discrete", "nominal", "ordinal", "binary"]
       },
-      "vignette.url": ["http://docs.zeligproject.org/articles/zeligchoice_ologit.html"],
+      "vignette.url": ["https://docs.zeligproject.org/articles/zeligchoice_ologit.html"],
       "wrapper": ["ologit"],
       "tree": ["Zelig-ologit", "Zelig-obinchoice"]
     },
@@ -61,7 +61,7 @@
       "explanatory": {
         "modelingType": ["continuous", "discrete", "nominal", "ordinal", "binary"]
       },
-      "vignette.url": ["http://docs.zeligproject.org/articles/zeligchoice_oprobit.html"],
+      "vignette.url": ["https://docs.zeligproject.org/articles/zeligchoice_oprobit.html"],
       "wrapper": ["oprobit"],
       "tree": ["Zelig-oprobit", "Zelig-obinchoice"]
     }
